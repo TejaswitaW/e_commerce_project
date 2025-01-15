@@ -13,6 +13,7 @@ class Basket:
 
     def __init__(self, request):
         self.session = request.session
+        # BASKET_SESSION_ID acts as the identifier (key) in the session storage to uniquely store the basket data for each user
         basket = self.session.get(settings.BASKET_SESSION_ID)
         if settings.BASKET_SESSION_ID not in request.session:
             basket = self.session[settings.BASKET_SESSION_ID] = {}
